@@ -1,0 +1,29 @@
+android:layout_width="match_parent" //부모의 크기만큼
+        android:layout_height="wrap_content" //밑  android:text="Hello world"의 폰트 크기만큼 감싸라
+        android:text="Hello world"/>
+
+텍스트 뷰가 2개 이상이고
+  <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello world"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello world"/>
+
+레이아웃이 LinearLayout이라면 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+그냥은 TextView가 2개가 나오지 않고 2개가 나오기 위해서는
+
+orientation을 지정해줘야 함
+
+ android:orientation="vertical" 방향 세로
+android:orientation="horizontal" 방향 가로
+
+ 
+
+ android:textColor="#000000" //글자색깔
+        android:textSize="20sp" // 글자사이즈
