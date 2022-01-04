@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <EditText  //input text라고 생각하면 됨
+        android:id="@+id/et_id" //id 
+        android:layout_width="300dp" //넓이
+        android:layout_height="wrap_content" //높이 wrap_content 컨텐츠를 입력하는 만큼 알아서 박스의 크기를 잡아줌
+        android:hint="아이디를 입력하세요..."/> //사용자가 어떤 데이터 값을 입력해야 하는지를 입력
+
+    <Button //Button
+        android:id="@+id/btn_test" //button id
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="버튼"/>
+
+
+
+</LinearLayout>
+
+---------------------------------------------------------------------------------------------------------------------
+package com.example.edittext;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText et_id; //변수선언
+    Button btn_test; //변수선언
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        et_id = findViewById(R.id.et_id); //xml에서 입력한 text를 받아옴
+        btn_test = findViewById(R.id.btn_test); //xml에서 힙력한 button을 받아옴
+
+        btn_test.setOnClickListener(new View.OnClickListener() {  //button을 클릭했을때
+            @Override
+            public void onClick(View view) {
+                et_id.setText("Hello world"); //Text필드에 Hello world가 자동적으로 입력되도록 함
+            }
+        });
+
+
+    }
+}
+
+
+
+
+
+
+
+
