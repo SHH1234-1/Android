@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".MainActivity">
+
+
+    <LinearLayout  //이미지 정렬
+        android:layout_width="match_parent"  //넓이
+        android:layout_height="wrap_content" //높이
+        android:gravity="center"> //이미지 정렬 가운데 right(오른쪽) left(왼쪽)
+
+
+        <ImageView
+            android:id="@+id/test" //id
+            android:layout_width="100dp"   //넓이
+            android:layout_height="100dp"  //높이
+            android:src="@mipmap/ic_launcher"/> //이미지
+
+    </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+------------------------------------------------------------------------------------------------------------------
+
+package com.example.firstapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    ImageView test;  //ImageView의 test 변수 생성
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        test = (ImageView)findViewById(R.id.test); //MainActivity의 ImageView의 id(test)를 받아와서 test에 넣음
+        test.setOnClickListener(new View.OnClickListener() { //test(이미지를) 클릭했을때
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Hello world", Toast.LENGTH_SHORT).show(); //Hello world라는 단어를 출력하고 그 출력하는 시간은 Toast.LENGTH_SHORT) 짧게 출력
+            }
+        });
+    }
+}
+
+
+
+
+
