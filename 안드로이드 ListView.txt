@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <ListView  //ListView 생성
+            android:id="@+id/list" //id 생성 id 이름 list
+            android:layout_width="match_parent" //넓이
+            android:layout_height="wrap_content"> //높이
+
+
+        </ListView>
+
+</LinearLayout>
+
+-------------------------------------------------------------------------------------------------------------------
+
+package com.example.listexample01;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    private ListView list; //ListView 변수 생성
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        list =(ListView)findViewById(R.id.list);  //ListView를 변수 list에 넣어줌
+
+        List<String> data = new ArrayList<>();  //List생성
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,data);  //ListView와 List를 연결하기 위한 adapter 생성 this(현재 Activity)에  android.R.layout.simple_list_item_1 사용할 List 형태 
+        list.setAdapter(adapter);  //ListView와 List를 연결
+
+        data.add("Hello World");  //List에 Data를 추가
+        data.add("A");
+        data.add("B");
+        data.add("C");
+        adapter.notifyDataSetChanged();  //저장 
+
+    }
+}
+
