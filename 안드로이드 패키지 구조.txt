@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.firstapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"  //이미지 경로 mipmap폴더의 ic_launcher폴더 안에 있는 이미지 사용중
+        android:label="@string/app_name"  // Build를 실행했을때 실제로 사용하는 앱이름
+        android:roundIcon="@mipmap/ic_launcher_round" //앱 아이콘 테두리를 둥글게
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FirstApp"> //앱의 심볼칼라 (앱에서 주로 사용하는 컬러를 확인하고 변경가능)
+        <activity
+            android:name=".MainActivity" //Activity의 선언을 담당 Activity를 만들어 줄때마다 추가됨
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />  //처음으로 실행되는 Activity 
+
+                <category android:name="android.intent.category.LAUNCHER" /> //앱을 처음으로 실행시킬때
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
