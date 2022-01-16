@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   <EditText
+       android:id="@+id/et_save" //id = et_save
+       android:layout_width="100dp"
+       android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
+
+-----------------------------------------------------------------------------------------------------
+
+package com.example.sharedexample;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText et_save;
+    String shared = "file";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) { //앱을 실행했을때
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        et_save = (EditText)findViewById(R.id.et_save);  //activity_main에 있는 id값을 et_save에 저장
+
+        SharedPreferences sharedPreferences = getSharedPreferences(shared, 0);
+        String value = sharedPreferences.getString("HelloWorld",""); //key값으로 저장한 우리가 입력한 text를 다시 value라는 변수에 저장함
+        et_save.setText(value); //다시 text를 입력하는 칸에 우리가 입력한 text값을 보여줌
+
+    }
+
+    @Override
+    protected void onDestroy() { //activity_main을 벗어났을때 (ex 앱을 종료시킬때 앱에서 뒤로가기 버튼을 눌렀을때)
+        super.onDestroy();
+
+        SharedPreferences sharedPreferences = getSharedPreferences(shared,0); //SharedPreferences를 선언
+        SharedPreferences.Editor editor = sharedPreferences.edit();  //sharedPreferences와 editor를 연결
+        String value = et_save.getText().toString(); //우리가 입력한 값을 받아와서 String으로 바꿔서 value에 저장
+        editor.putString("HelloWorld",value); // editor에 우리가 입력한 값을 저장 (key값과 우리가 입력한Text의 값을 가진value )
+        editor.commit(); //저장
+
+
+    }
+}
+
