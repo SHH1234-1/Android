@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <WebView /*Web 사이트를 보여주기 위한 WebView창*/
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
+-------------------------------------------------------------------------------------------------------------
+
+package com.example.webviewexample;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+public class MainActivity extends AppCompatActivity {
+
+    private WebView webView; /*activity_main에 있는 id값을 받아오기 위한 private WebView webView;생성 */
+    private String url = "https://www.google.co.kr"; /*WebView를 실행시킬때 어떤 웹사이트 주소로 WebView를 실행시킬것인지를 알아내는 주소 즉 우리가 앱을 실행시켰을때 보여주고자 하는 웹사이트 주소*/
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) { /*앱이 실행되었을때*/
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        webView = (WebView)findViewById(R.id.webView); /*activity_main있는 id값을 webView에 저장*/
+        webView.getSettings().setJavaScriptEnabled(true);/*자바스크립트 허용 여부 true허용*/
+        webView.loadUrl(url); /*우리가 입력한 주소 (여기서는https://www.google.co.kr)을  실행시켜라  위에 https://www.google.co.kr를 url에 넣고 url를 webView.loadUrl()로 실행시킴  */
+        webView.setWebChromeClient(new WebChromeClient()); /* webView 세팅 환경을 WebChromeClient으로 세팅허용*/
+        webView.setWebViewClient(new WebViewClientClass()); /* webView 세팅 환경을 WebChromeClient뿐만아니라 다른 WebViewClient로 세팅허용*/
+
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) { /*특정키를 입력했을때 어떠한 동작을 실행할 수 있도록 하는것*/
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()){ /*만일 뒤로가기버튼(KEYCODE_BACK)을 눌렀을때  && 뒤로가기가 가능하다면*/
+            webView.goBack(); /*webView 뒤로가기*/
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private class WebViewClientClass extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) { /*현재 페이지의 url을 불러오는 메소드*/
+            view.loadUrl(url); /**/
+            return true;
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.webviewexample">
+
+    <uses-permission android:name="android.permission.INTERNET"/> /*인터넷 연결 허용*/
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WebViewExample">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+
+
