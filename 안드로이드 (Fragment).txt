@@ -1,0 +1,285 @@
+ [activity_main.xml]
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+ 
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+ 
+    </FrameLayout>
+ 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"> /*상단 배치를 하단배치로 바꿈*/
+ 
+        <Button
+            android:id="@+id/btn_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="메뉴1" />
+ 
+        <Button
+            android:id="@+id/btn_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="메뉴2" />
+ 
+        <Button
+            android:id="@+id/btn_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="메뉴3" />
+ 
+        <Button
+            android:id="@+id/btn_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="메뉴4" />
+ 
+ 
+    </LinearLayout>
+ 
+</RelativeLayout>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[fragment1.xml]
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="111111"/>
+ 
+</FrameLayout>
+
+[fragment2.xml]
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="222222222222"/>
+ 
+</FrameLayout>
+
+
+[fragment3.xml]
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="333333"/>
+ 
+</FrameLayout>
+
+[fragment4.xml]
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="4444444"/>
+ 
+</FrameLayout>
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[MainActivity.java]
+package com.example.fragmentexample;
+ 
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+ 
+public class MainActivity extends AppCompatActivity {
+ 
+    Button btn1,btn2,btn3,btn4;
+ 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) { 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+ 
+        btn1 = (Button)findViewById(R.id.btn_1); /*버튼가져오기*/
+        btn2 = (Button)findViewById(R.id.btn_2);
+        btn3 = (Button)findViewById(R.id.btn_3);
+        btn4 = (Button)findViewById(R.id.btn_4);
+ 
+        btn1.setOnClickListener(new View.OnClickListener() { /*버튼을 클릭했을때*/
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Fragment1 fragment1 = new Fragment1(); /*객체 생성*/
+                transaction.replace(R.id.frame, fragment1); /*버튼을 눌렀을때 화면을 fragment1로 교체*/
+                transaction.commit(); /*실행*/
+            }
+        });
+ 
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Fragment2 fragment2 = new Fragment2();
+                transaction.replace(R.id.frame, fragment2);
+                transaction.commit();
+            }
+        });
+ 
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Fragment3 fragment3 = new Fragment3();
+                transaction.replace(R.id.frame, fragment3);
+                transaction.commit();
+            }
+        });
+ 
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Fragment4 fragment4 = new Fragment4();
+                transaction.replace(R.id.frame, fragment4);
+                transaction.commit();
+            }
+        });
+ 
+ 
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[Fragment1.java]
+package com.example.fragmentexample;
+ 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+ 
+public class Fragment1 extends Fragment {
+ 
+    public Fragment1() {
+ 
+    }
+ 
+ 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) { /*[Fragment1이 실행될때*/
+        return inflater.inflate(R.layout.fragment1, container, false);
+    }
+}
+
+
+[Fragment2.java]
+package com.example.fragmentexample;
+ 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+ 
+public class Fragment2 extends Fragment {
+ 
+    public Fragment2() {
+ 
+    }
+ 
+ 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment2, container, false);
+    }
+}
+ 
+[Fragment3.java]
+package com.example.fragmentexample;
+ 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+ 
+public class Fragment3 extends Fragment {
+ 
+    public Fragment3() {
+ 
+    }
+ 
+ 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment3, container, false);
+    }
+}
+ 
+[Fragment4.java]
+
+
+package com.example.fragmentexample;
+ 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+ 
+public class Fragment4 extends Fragment {
+ 
+    public Fragment4() {
+ 
+    }
+ 
+ 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment4, container, false);
+    }
+}
+
+
+
+
