@@ -1,0 +1,24 @@
+package com.example.debugexample;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        String son = "손드로이드";
+
+        Log.e("MainActivity : ",son);/*앱을 실행했을때 손드로이드 라는 에러메시지 출력*/
+        
+        int a = 10;
+        
+        Log.e("MainActivity : ", String.valueOf(a)); /*에러메시지는 보통 string으로 출력하는데 여기서 String.valueOf()하면 string으로 int값을 바꿔서 출력해준다*/
+                
+    }
+}
