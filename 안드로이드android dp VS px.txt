@@ -1,0 +1,55 @@
+
+01. 안드로이드에서 화면을 그리는 방법
+
+기본적으로 xml 이라는 언어를 사용한다
+DSL -> Domain Specific Language (범주, 특화된, 언어)
+: 안드로이드 UI를 그리기 위한 특화된 언어다.
+
+px 과 dp란 무엇인가?
+
+핸드폰마다 크기가 다른데 어떻게 화면을 그려야 하나?? ->> dp 라는 단위를 사용하면 된다
+
+dpi (px, dp)
+
+dpi : dot per inch (1인치 안에서 픽셀이 얼마나 많이 있는가?)
+
+    - 1dpi -> (1인치 120px)
+    - mdpi -> (1인치 160px)
+    - hdpi -> (1인치 240px)
+    - xhdpi -> (1인치 320px)
+    - xxhdpi -> (1인치 480px)
+    - xxxhdpi -> (1인치 640px)
+
+    px = dp * (단말 DPI / 기본 160)
+    dp = px * (기본 160 / 단말 DPI)
+
+
+    // 기본 단말 dpi예시
+    // 420 dpi
+    // 560 dpi
+    
+핵심 결론 : dp 라는 단위를 사용하면 사용자 기기에 따라서 자동으로 적절한 px로 변환 되어 화면을 그려준다
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <!-- px 78.75 기본단말을 420dpi로 줬을경우
+         px 105 기본단말을  560dpi로 줬을 경우
+
+
+    -->
+
+    <Button
+        android:text="hello android"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+
+</LinearLayout>
