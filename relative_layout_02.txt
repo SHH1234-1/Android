@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  1. 상대 레이아웃 부모 뷰 기준으로 정렬 -> Parent
+  2. 상대 레이아웃 부모 뷰 기준으로 정렬 -> center
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true" <!--부모안에서 위치를 center로 잡기- ->
+        android:background="@color/purple_200" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true" <!--부모기준 위치를 bottom으로 잡기-->
+        android:background="@color/purple_200" />
+
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true" <!--부모기준 위치를 right로 잡기-->
+        android:background="@color/purple_200" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/purple_200" />
+
+
+    <TextView
+        android:layout_alignParentBottom="true" <!--밑으로 보내기-->
+        android:layout_alignParentRight="true"   <!--밑으로 보내서 오른쪽-->
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/purple_200" />
+
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/black" />
+
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:background="@color/black" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@color/black" />
+
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/black" />
+
+
+</RelativeLayout>
