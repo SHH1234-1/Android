@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+        java 같은 경우 문법 오류를 잘 잡아준다.
+        xml 에 특징 : 문법 체크에 느슨하다.
+       스크롤 뷰를 사용할 때 꼭 기억하기 !!
+       : 스크롤 뷰는 오직 하나의 자식 뷰를 가질 수 있다.
+       !Tip : 알수 없수 없는 오류를 만날 수 있다.
+       : android:fillViewport="true"
+
+	
+	1.스크롤 뷰의 방향은 기본적으로 자식 뷰 orientation으로 처리한다
+	2.스크롤에 영역은 직접 설정할 수 있다
+ 	3.scrollbars 속성을 기억하자
+	4.습관적으로 속성을 항상 주도록 하자
+      -->
+
+    <ScrollView
+        android:fillViewport="true"
+        android:scrollbars="none" <!--스크롤 바를 안보이게 함-->
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"> <!--스크롤뷰의 영역 지정된 영역안에서만 스크롤 뷰가 발동됨-->
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+ 
+            <TextView
+                android:background="@color/purple_500"
+                android:layout_width="200dp"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:background="@color/purple_700"
+                android:layout_width="200dp"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:background="@color/purple_500"
+                android:layout_width="200dp"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:background="@color/teal_700"
+                android:layout_width="200dp"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:background="@color/black"
+                android:layout_width="200dp"
+                android:layout_height="200dp"/>
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>
