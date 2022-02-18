@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="button1"
+        app:layout_constraintBottom_toBottomOf="parent" <!--constraint제약을 걸다Bottom(나자신Button의 Bottom)에 toBottomOf="parent"(부모의 Bottom에 제약을 걸다)-->
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
+        android:text="2"
+        app:layout_constraintStart_toStartOf="parent" <!--제약Start에 제약을건다 부모와 나 자신의 left에 제약을 검-->
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:text="3"
+        app:layout_constraintStart_t oEndOf="@id/btn2"
+        app:layout_constraintTop_toTopOf="@id/btn2" />
+
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="4"
+        app:layout_constraintEnd_toEndOf="@id/btn3"    <!--3번 버튼의 -->
+        app:layout_constraintStart_toStartOf="@id/btn2" <!--2번 버튼의 left와 제약-->
+        app:layout_constraintTop_toBottomOf="@id/btn2" />
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/black"
+        android:gravity="center"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:text="tv1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        android:gravity="center"
+        android:text="tv2"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/tv3"
+        app:layout_constraintStart_toEndOf="@id/tv1"
+        app:layout_constraintTop_toTopOf="@id/tv1" />
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        android:gravity="center"
+        android:text="tv3"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv2"
+        app:layout_constraintTop_toTopOf="@id/tv1" />
+
+

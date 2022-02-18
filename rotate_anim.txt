@@ -1,0 +1,10 @@
+rotate_anim.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="4000" <!--애니메이션 지속시간 4초-->
+    android:fromDegrees="0"
+    android:interpolator="@android:anim/accelerate_interpolator"
+    android:toDegrees="3600"><!--각도 돌기-->
+</rotate>
+<!-- 시간 : 4000(ms) 1000 -> 1초  -->
