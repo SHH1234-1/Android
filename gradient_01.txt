@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <gradient
+        android:angle="90" <!--90도로 회전을 한 후 그라데이션 효과 적용-->
+        android:startColor="#7E5232"  <!--왼쪽 그라데이션-->
+        android:centerColor="@color/purple_500" <!--중앙 그라데이션-->
+        android:endColor="@color/teal_700"/>  <!--오른쪽 그라데이션-->
+
+</shape>
