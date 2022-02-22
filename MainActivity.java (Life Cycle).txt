@@ -1,0 +1,58 @@
+package com.example.myapp4;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+
+public class MainActivity extends AppCompatActivity {
+
+
+    private String TAG1 = "Life_Cycle";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+       //-->앱이 처음실행될때 한번만 호출
+      //--> 멤버변수 초기화 (한번만 해야 되는 작업들을 onCreate에서 작업 )
+        Log.d(TAG1, "onCreate ~ 호출 됨.");
+    } 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG1, "onStart ~ 호출 됨.");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG1, "onResume ~ 호출 됨.");
+    }
+
+<!--앱이 처음 실행되었을때  onCreate  onStart()  onResume()가 실행-->
+<!--앱이 다시 실행되었을때 onStart()  onResume()가 실행-->
+<!--onResume() 앱이 정상적으로 실행되고 화면이 사용자에게 보여질때 실행되는 메소드-->
+<!--홈버튼 오른쪽 버튼을 클릭했을때 onPause() onStop() -->
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG1, "onPause ~ 호출 됨.");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG1, "onStop ~ 호출 됨.");
+    }
+<!--앱 화면을 내릴때(홈버튼을 클릭했을때) onPause()   onStop() 가 실행-->
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG1, "onDestroy ~ 호출 됨.");
+    }
+}
+
+<!--앱을 완전히 종료할때 onDestroy()-->
