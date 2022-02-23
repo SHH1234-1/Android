@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/too_bar"
+        layout="@layout/tool_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp" <!--전체margin-->
+        android:layout_marginEnd="16dp"  <!--전체margin-->
+        android:orientation="vertical">
+
+        <ImageView 
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_baseline_accessibility_24"
+            app:tint="@color/purple_200" />  <!--일반속성에 색깔을 넣을 때는tint -->
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label"<!--신장-->
+            app:startIconDrawable="@drawable/ic_baseline_favorite_border_24"
+            app:startIconTint="@color/purple_200"> <!--material 아이콘 속성에 넣을때는 startIconTint를 넣어준다-->
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/heightEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" /><!--받아야하는 text타입이 숫자타입이므로 number로 설정-->
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="@string/label_1" <!--체중-->
+            app:startIconDrawable="@drawable/ic_weigth"
+            app:startIconTint="@color/purple_200">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/weightEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" /> <!--받아야하는 text타입이 숫자타입이므로 number로 설정-->
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_ok"  <!--이벤트 리스너를 위한 id값-->
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/str_ok" /> <!--확인하기-->
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My App 6</string>
+    <string name="label">신장</string>
+    <string name="label_1">체중</string>
+    <string name="str_ok">확인하기</string>
+    <string name="str_temp1">클릭하기</string>
+</resources>
