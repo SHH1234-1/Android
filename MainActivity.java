@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button addButton;
     private Button initButton;
     private Button runButton;
-    private Set<Integer> pickerNumberSet = new HashSet<>();  //set생성
+    private Set<Integer> pickerNumberSet = new HashSet<>();
     private ArrayList<TextView> textViews = new ArrayList<>();
     private boolean didRun = false;
 
@@ -33,16 +33,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lotto);
-        initData();  <!--주소값이 담긴 메소드 호출-->
+        initData();
         addEventListener();
     }
 
     private void initData() {
         numberPicker = findViewById(R.id.numberPicker);
-        numberPicker.setMinValue(1); //numberPicker의 최소값을 1
-        numberPicker.setMaxValue(45); //numberPicker의 최대값을 45
+        numberPicker.setMinValue(1);
+        numberPicker.setMaxValue(45);
 
-        addButton = findViewById(R.id.addButton);  //초기화
+        addButton = findViewById(R.id.addButton);
         initButton = findViewById(R.id.initButton);
         runButton = findViewById(R.id.runButton);
 
@@ -114,22 +114,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void getRandomNumberTest() {
         // 랜던 숫자를 만들어주는 클래스를 가져온다.
-        Random random = new Random();  //난수를 만드는 클래스 Random
-        ArrayList<Integer> list = new ArrayList<>();  //번호를 담을 list 생성
-        while (list.size() < 6) {   //6개의 번호 선택을 위한 반복문
-            int number = random.nextInt(45) + 1;  //random난수의 nextInt(45) 0~44까지 랜덤한 수+1 를 더한 값을 int number에 저장
-            if (list.contains(number)) {  //ex 첫번째수가 5 두번째수가 5즉 같은 수를 뽑는 경우는
-                continue;  //무시하고 다시 맨위로 보냄
+        Random random = new Random();
+        ArrayList<Integer> list = new ArrayList<>();
+        while (list.size() < 6) {
+            int number = random.nextInt(45) + 1;
+            if (list.contains(number)) {
+                continue;
             }
-            list.add(number);  //중복수가 아니라면 list에 추가
+            list.add(number);
         }
-        Collections.sort(list);  //작은 순서부터 큰 순서로 자동 정렬
-        Log.d("TAG", list.toString());  //list가 integer형이므로 String형태로 바꿔서 출력
+        Collections.sort(list);
+        Log.d("TAG", list.toString());
     }
 
     private List<Integer> getRandomNumber() {
         ArrayList<Integer> numberList = new ArrayList<>();
- 
+
         // 사용자 선택한 번호 확인
         Log.d("TAG", pickerNumberSet.toString());
 
