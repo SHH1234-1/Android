@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Activity"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--
+        반드시 ID 값을 지정해 주어야 한다.
+        name 값도 지정해주어야 한다.
+    -->
+<!--    <fragment-->
+<!--        android:id="@+id/fragmentOne"-->
+<!--        android:name="com.example.myfragment.OneFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp" />-->
+
+    <Button
+        android:id="@+id/createFragmentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_create" />
+
+    <Button
+        android:id="@+id/removeFragmentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_remove" />
+
+    <LinearLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#46A5CF"
+        android:orientation="vertical" />
+
+
+</LinearLayout>
