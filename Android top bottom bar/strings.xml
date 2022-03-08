@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Layout</string>
+    <string name="page_title">MyLayout</string>
+    <string name="favorite">favorite</string>
+    <string name="search">serch</string>
+    <string name="more">more</string>
+    <string name="text_label_1">home</string>
+    <string name="text_label_2">person</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_label_3">chat</string>
+    <string name="text_label_4">view</string>
+</resources>
