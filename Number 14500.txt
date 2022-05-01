@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class Main {
+    static int N, M, ans;
+    static int[][] map;
+    static int[] dy = {-1, 1, 0, 0}; //좌 우 상 하
+    static int[] dx = {0, 0, -1, 1}; //좌 우 상 하
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        N = sc.nextInt();  //종이의 세로 크기
+        M = sc.nextInt(); //종이의 가로 크기
+
+        map = new int[N][M];
+        for (int i = 0; i < N; i++)
+            for (int j = 0; j < M; j++)
+                map[i][j] = sc.nextInt(); //종이에 쓰여진 수 출력
+
+        boolean[][] visit = new boolean[N][M];  //모양을 대칭, 회전을 시키기 위해서는 한점을 다시 방문해야 한다 
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                visit[i][j] = true;  //들어가기전 체크를 하고
+                dfs(i, j, 1, map[i][j], visit); //하나의 탐색을 하고 나서 완료하면 다시 돌아옴
+                visit[i][j] = false; //나올때 체크를 해제
+                check(i, j);  // ㅗ ㅜ ㅓ ㅏ 모양 ㅗ는 회전및 대칭으로 ㅜ ㅓ ㅏ 모양으로 바뀔 수 있기 때문에 DFS로 해준다
+            }
+        }
+        System.out.println(ans);
+
+    }
+
+    static void dfs(int y, int x, int cnt, int sum, boolean[][] visit) {
+
+        if (cnt >= 4) {
+            ans = Math.max(ans, sum);
+            return;
+        }
+
+        for (int k = 0; k < 4; k++) {
+            int ny = y + dy[k];
+            int nx = x + dx[k];
+
+            if (ny < 0 || nx < 0 || ny >= N || nx >= M || visit[ny][nx]) {
+                continue;
+            }
+
+            visit[ny][nx] = true;
+            dfs(ny, nx, cnt + 1, sum + map[ny][nx], visit);
+            visit[ny][nx] = false;
+        }
+    }
+
+    static void check(int y, int x) {  //ㅗ ㅜ ㅓ ㅏ 
+        if (y < N - 2 && x < M - 1)
+            ans = Math.max(ans, map[y][x] + map[y + 1][x] + map[y + 2][x] + map[y + 1][x + 1]);  //모양을 우선적으로 출력하고 ㅗ ㅜ ㅓ ㅏ 와 아닌 값을 비교후 더 큰 값을 출력
+
+        if (y < N - 2 && x > 0)
+            ans = Math.max(ans, map[y][x] + map[y + 1][x] + map[y + 2][x] + map[y + 1][x - 1]);
+
+        if (y < N - 1 && x < M - 2)
+            ans = Math.max(ans, map[y][x] + map[y][x + 1] + map[y][x + 2] + map[y + 1][x + 1]);
+
+        if (y > 0 && x < M - 2)
+            ans = Math.max(ans, map[y][x] + map[y][x + 1] + map[y][x + 2] + map[y - 1][x + 1]);
+    }
+
+
+}
